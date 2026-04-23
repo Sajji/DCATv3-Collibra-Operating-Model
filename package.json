@@ -1,0 +1,32 @@
+{
+  "name": "dcat3-collibra-import",
+  "version": "1.0.0",
+  "description": "Programmatic import of the DCAT-US 3.0 profile into Collibra DGC via the Core REST API",
+  "main": "bin/dcat3-import.js",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "verify": "node bin/dcat3-import.js verify",
+    "phase1": "node bin/dcat3-import.js phase 1",
+    "phase2": "node bin/dcat3-import.js phase 2",
+    "phase3": "node bin/dcat3-import.js phase 3",
+    "phase4": "node bin/dcat3-import.js phase 4",
+    "phase5": "node bin/dcat3-import.js phase 5",
+    "all": "node bin/dcat3-import.js all",
+    "status": "node bin/dcat3-import.js status",
+    "rollback": "node bin/dcat3-import.js rollback"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  },
+  "keywords": [
+    "collibra",
+    "dcat",
+    "dcat-us",
+    "metadata",
+    "data-governance"
+  ],
+  "license": "MIT"
+}

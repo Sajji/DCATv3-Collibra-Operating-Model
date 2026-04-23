@@ -1,0 +1,230 @@
+{
+  "_notes": [
+    "Asset types are created in declaration order so that any 'parentKey' reference resolves.",
+    "'parentPublicId' refers to an OOTB Collibra asset type (e.g. 'BusinessAsset'). 'parentKey' refers to another DCAT3 type defined in this file.",
+    "If both parentKey and parentPublicId are absent, the asset type is created as a top-level type."
+  ],
+  "assetTypes": [
+    {
+      "key": "resource",
+      "name": "DCAT3 Resource",
+      "description": "Root for the DCAT-US 3.0 profile. Mirrors dcat:Resource. Common attributes (title, description, publisher, theme, keyword, access rights) inherit from here. Source URI: dcat:Resource",
+      "symbolType": "ACRONYM_CODE",
+      "acronymCode": "D3R"
+    },
+    {
+      "key": "dataset",
+      "name": "DCAT3 Dataset",
+      "parentKey": "resource",
+      "description": "A conceptual entity that represents the information published. Source URI: dcat:Dataset",
+      "symbolType": "ACRONYM_CODE",
+      "acronymCode": "D3D"
+    },
+    {
+      "key": "datasetSeries",
+      "name": "DCAT3 Dataset Series",
+      "parentKey": "dataset",
+      "description": "A collection of datasets that are published separately but share characteristics. Source URI: dcat:DatasetSeries",
+      "symbolType": "ACRONYM_CODE",
+      "acronymCode": "D3S"
+    },
+    {
+      "key": "catalog",
+      "name": "DCAT3 Catalog",
+      "parentKey": "dataset",
+      "description": "A curated collection of metadata about resources. Per spec, dcat:Catalog is a sub-class of dcat:Dataset. Source URI: dcat:Catalog",
+      "symbolType": "ACRONYM_CODE",
+      "acronymCode": "D3C"
+    },
+    {
+      "key": "catalogRecord",
+      "name": "DCAT3 Catalog Record",
+      "parentKey": "resource",
+      "description": "A record in a catalog, describing the registration of a single dcat:Resource. Source URI: dcat:CatalogRecord"
+    },
+    {
+      "key": "distribution",
+      "name": "DCAT3 Distribution",
+      "parentKey": "resource",
+      "description": "A physical embodiment of the Dataset in a particular format. Source URI: dcat:Distribution"
+    },
+    {
+      "key": "dataService",
+      "name": "DCAT3 Data Service",
+      "parentKey": "resource",
+      "description": "A collection of operations that provides access to one or more datasets or data processing functions. Source URI: dcat:DataService"
+    },
+
+    {
+      "key": "agent",
+      "name": "DCAT3 Agent",
+      "parentPublicId": "BusinessAsset",
+      "description": "An entity (e.g. an individual or an organization) associated with Catalogs, Catalog Records, Data Services, or Datasets. Source URI: foaf:Agent"
+    },
+    {
+      "key": "organization",
+      "name": "DCAT3 Organization",
+      "parentKey": "agent",
+      "description": "A collection of people organized into a community or other social/commercial/political structure. Source URI: org:Organization"
+    },
+    {
+      "key": "person",
+      "name": "DCAT3 Person",
+      "parentKey": "agent",
+      "description": "An individual human being. Source URI: foaf:Person"
+    },
+    {
+      "key": "contact",
+      "name": "DCAT3 Contact",
+      "parentPublicId": "BusinessAsset",
+      "description": "Point of contact information following vCard. Source URI: vcard:Kind"
+    },
+
+    {
+      "key": "concept",
+      "name": "DCAT3 Concept",
+      "parentPublicId": "CodeValue",
+      "description": "A controlled vocabulary term used to classify Catalog, Dataset, or Data Service. Source URI: skos:Concept"
+    },
+    {
+      "key": "conceptScheme",
+      "name": "DCAT3 Concept Scheme",
+      "parentPublicId": "CodeList",
+      "description": "A concept collection (e.g. controlled vocabulary). Source URI: skos:ConceptScheme"
+    },
+    {
+      "key": "role",
+      "name": "DCAT3 Role",
+      "parentKey": "concept",
+      "description": "Function of a resource or agent with respect to another resource. Source URI: dcat:Role"
+    },
+    {
+      "key": "mediaType",
+      "name": "DCAT3 Media Type",
+      "parentPublicId": "CodeValue",
+      "description": "A media type (e.g., the format of a computer file). Source URI: dcterms:MediaType"
+    },
+    {
+      "key": "metric",
+      "name": "DCAT3 Metric",
+      "parentPublicId": "CodeValue",
+      "description": "A standard to measure a quality dimension. Source URI: dqv:Metric"
+    },
+
+    {
+      "key": "standard",
+      "name": "DCAT3 Standard",
+      "parentPublicId": "GovernanceAsset",
+      "description": "A standard or other specification a resource conforms to. Source URI: dcterms:Standard"
+    },
+    {
+      "key": "licenseDocument",
+      "name": "DCAT3 License Document",
+      "parentPublicId": "GovernanceAsset",
+      "description": "A legal document giving official permission to do something with a resource. Source URI: dcterms:LicenseDocument"
+    },
+    {
+      "key": "rightsStatement",
+      "name": "DCAT3 Rights Statement",
+      "parentPublicId": "GovernanceAsset",
+      "description": "A statement about the IPR held in or over a resource. Source URI: dcterms:RightsStatement"
+    },
+    {
+      "key": "provenanceStatement",
+      "name": "DCAT3 Provenance Statement",
+      "parentPublicId": "GovernanceAsset",
+      "description": "A statement of any changes in ownership and custody of a resource. Source URI: dcterms:ProvenanceStatement"
+    },
+    {
+      "key": "accessRestriction",
+      "name": "DCAT3 Access Restriction",
+      "parentPublicId": "GovernanceAsset",
+      "description": "[New in DCAT-US 3.0] NARA-defined limitations on accessing specific records. Source URI: dcat-us:AccessRestriction"
+    },
+    {
+      "key": "cuiRestriction",
+      "name": "DCAT3 CUI Restriction",
+      "parentPublicId": "GovernanceAsset",
+      "description": "[New in DCAT-US 3.0] Controlled Unclassified Information restriction per NARA. Source URI: dcat-us:CuiRestriction"
+    },
+    {
+      "key": "useRestriction",
+      "name": "DCAT3 Use Restriction",
+      "parentPublicId": "GovernanceAsset",
+      "description": "[New in DCAT-US 3.0] Rules dictating how a resource can be utilized. Source URI: dcat-us:UseRestriction"
+    },
+    {
+      "key": "liabilityStatement",
+      "name": "DCAT3 Liability Statement",
+      "parentPublicId": "GovernanceAsset",
+      "description": "[New in DCAT-US 3.0] Formal declaration of responsibilities and limitations of the data provider. Source URI: dcat-us:LiabilityStatement"
+    },
+    {
+      "key": "checksum",
+      "name": "DCAT3 Checksum",
+      "parentPublicId": "TechnicalAsset",
+      "description": "A value that allows the contents of a file to be authenticated. Source URI: spdx:Checksum"
+    },
+    {
+      "key": "identifier",
+      "name": "DCAT3 Identifier",
+      "parentPublicId": "TechnicalAsset",
+      "description": "[New in DCAT-US 3.0] An identifier in a particular context. Source URI: adms:Identifier"
+    },
+    {
+      "key": "activity",
+      "name": "DCAT3 Activity",
+      "parentPublicId": "BusinessAsset",
+      "description": "An activity carried out by an Agent over an entity. Source URI: prov:Activity"
+    },
+    {
+      "key": "attribution",
+      "name": "DCAT3 Attribution",
+      "parentPublicId": "GovernanceAsset",
+      "description": "A responsibility of an Agent for a resource. Source URI: prov:Attribution"
+    },
+    {
+      "key": "qualityMeasurement",
+      "name": "DCAT3 Quality Measurement",
+      "parentPublicId": "GovernanceAsset",
+      "description": "Evaluation of a resource against a specific quality metric. Source URI: dqv:QualityMeasurement"
+    },
+
+    {
+      "key": "location",
+      "name": "DCAT3 Location",
+      "parentPublicId": "BusinessAsset",
+      "description": "A spatial region or named place. Source URI: dcterms:Location"
+    },
+    {
+      "key": "addressLocation",
+      "name": "DCAT3 Address (Location)",
+      "parentKey": "location",
+      "description": "The address of a location. Source URI: locn:Address"
+    },
+    {
+      "key": "addressContact",
+      "name": "DCAT3 Address (Contact Point)",
+      "parentKey": "contact",
+      "description": "A postal address for a Contact Point. Source URI: vcard:Address"
+    },
+    {
+      "key": "geographicBoundingBox",
+      "name": "DCAT3 Geographic Bounding Box",
+      "parentKey": "location",
+      "description": "[New in DCAT-US 3.0] Spatial extent in WGS 84 Lat/Long. Source URI: dcat-us:GeographicBoundingBox"
+    },
+    {
+      "key": "periodOfTime",
+      "name": "DCAT3 Period of Time",
+      "parentPublicId": "BusinessAsset",
+      "description": "An interval of time named or defined by its start and end dates. Source URI: dcterms:PeriodOfTime"
+    },
+    {
+      "key": "document",
+      "name": "DCAT3 Document",
+      "parentPublicId": "BusinessAsset",
+      "description": "A textual resource intended for human consumption. Source URI: foaf:Document"
+    }
+  ]
+}

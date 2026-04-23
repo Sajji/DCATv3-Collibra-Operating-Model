@@ -1,0 +1,281 @@
+{
+  "_notes": [
+    "sourceKey/targetKey reference assetTypes by their key from data/asset-types.json.",
+    "role is the source-side role; coRole is the target-side. Read as: <source> <role> <target>; <target> <coRole> <source>.",
+    "Cardinality (min/max) is enforced via the assignment, not the relation type definition itself."
+  ],
+  "relationTypes": [
+    {
+      "key": "catalogContainsDataset",
+      "sourceKey": "catalog", "role": "contains dataset",
+      "targetKey": "dataset", "coRole": "is in catalog",
+      "description": "dcat:dataset — Dataset that is part of the catalog."
+    },
+    {
+      "key": "catalogContainsService",
+      "sourceKey": "catalog", "role": "contains service",
+      "targetKey": "dataService", "coRole": "is service in catalog",
+      "description": "dcat:service — Data Service listed in the Catalog."
+    },
+    {
+      "key": "catalogContainsRecord",
+      "sourceKey": "catalog", "role": "contains record",
+      "targetKey": "catalogRecord", "coRole": "is record in catalog",
+      "description": "dcat:record — Catalog Record describing a registration in the Catalog."
+    },
+    {
+      "key": "catalogContainsCatalog",
+      "sourceKey": "catalog", "role": "references catalog",
+      "targetKey": "catalog", "coRole": "is referenced by catalog",
+      "description": "dcat:catalog — Catalog whose contents are of interest in the context of this catalog."
+    },
+    {
+      "key": "catalogHasPart",
+      "sourceKey": "catalog", "role": "has part",
+      "targetKey": "catalog", "coRole": "is part of",
+      "description": "dcterms:hasPart — Related catalog that is part of the described catalog."
+    },
+
+    {
+      "key": "datasetHasDistribution",
+      "sourceKey": "dataset", "role": "has distribution",
+      "targetKey": "distribution", "coRole": "is distribution of",
+      "description": "dcat:distribution"
+    },
+    {
+      "key": "dataServiceServesDataset",
+      "sourceKey": "dataService", "role": "serves dataset",
+      "targetKey": "dataset", "coRole": "is served by data service",
+      "description": "dcat:servesDataset"
+    },
+    {
+      "key": "datasetSeriesHasMember",
+      "sourceKey": "datasetSeries", "role": "has member dataset",
+      "targetKey": "dataset", "coRole": "is member of dataset series",
+      "description": "dcat:inSeries (inverse direction)"
+    },
+
+    {
+      "key": "resourcePublishedBy",
+      "sourceKey": "resource", "role": "published by",
+      "targetKey": "agent", "coRole": "publishes",
+      "description": "dcterms:publisher"
+    },
+    {
+      "key": "resourceCreatedBy",
+      "sourceKey": "resource", "role": "created by",
+      "targetKey": "agent", "coRole": "created",
+      "description": "dcterms:creator"
+    },
+    {
+      "key": "resourceHasContactPoint",
+      "sourceKey": "resource", "role": "has contact point",
+      "targetKey": "contact", "coRole": "is contact point for",
+      "description": "dcat:contactPoint"
+    },
+
+    {
+      "key": "resourceHasTheme",
+      "sourceKey": "resource", "role": "has theme",
+      "targetKey": "concept", "coRole": "theme of",
+      "description": "dcat:theme"
+    },
+    {
+      "key": "resourceHasThemeTaxonomy",
+      "sourceKey": "resource", "role": "has theme taxonomy",
+      "targetKey": "conceptScheme", "coRole": "theme taxonomy of",
+      "description": "dcat:themeTaxonomy"
+    },
+    {
+      "key": "resourceHasSubject",
+      "sourceKey": "resource", "role": "has subject",
+      "targetKey": "concept", "coRole": "subject of",
+      "description": "dcterms:subject"
+    },
+
+    {
+      "key": "resourceHasSpatialCoverage",
+      "sourceKey": "resource", "role": "has spatial coverage",
+      "targetKey": "location", "coRole": "spatial coverage of",
+      "description": "dcterms:spatial"
+    },
+    {
+      "key": "resourceHasTemporalCoverage",
+      "sourceKey": "resource", "role": "has temporal coverage",
+      "targetKey": "periodOfTime", "coRole": "temporal coverage of",
+      "description": "dcterms:temporal"
+    },
+    {
+      "key": "resourceHasGeographicBoundingBox",
+      "sourceKey": "resource", "role": "has geographic bounding box",
+      "targetKey": "geographicBoundingBox", "coRole": "bounding box of",
+      "description": "dcat-us:geographicBoundingBox"
+    },
+
+    {
+      "key": "resourceHasAccessRights",
+      "sourceKey": "resource", "role": "has access rights",
+      "targetKey": "rightsStatement", "coRole": "access rights of",
+      "description": "dcterms:accessRights"
+    },
+    {
+      "key": "resourceHasRights",
+      "sourceKey": "resource", "role": "has rights",
+      "targetKey": "rightsStatement", "coRole": "rights of",
+      "description": "dcterms:rights"
+    },
+    {
+      "key": "resourceHasLicense",
+      "sourceKey": "resource", "role": "has license",
+      "targetKey": "licenseDocument", "coRole": "license of",
+      "description": "dcterms:license"
+    },
+    {
+      "key": "resourceConformsTo",
+      "sourceKey": "resource", "role": "conforms to",
+      "targetKey": "standard", "coRole": "conformed to by",
+      "description": "dcterms:conformsTo"
+    },
+    {
+      "key": "resourceRightsHolder",
+      "sourceKey": "resource", "role": "rights held by",
+      "targetKey": "organization", "coRole": "holds rights to",
+      "description": "dcterms:rightsHolder"
+    },
+
+    {
+      "key": "resourceHasAccessRestriction",
+      "sourceKey": "resource", "role": "has access restriction",
+      "targetKey": "accessRestriction", "coRole": "restricts access to",
+      "description": "dcat-us:hasAccessRestriction (NEW in DCAT-US 3.0)"
+    },
+    {
+      "key": "resourceHasCuiRestriction",
+      "sourceKey": "resource", "role": "has CUI restriction",
+      "targetKey": "cuiRestriction", "coRole": "CUI restriction of",
+      "description": "dcat-us:hasCuiRestriction (NEW in DCAT-US 3.0)"
+    },
+    {
+      "key": "resourceHasUseRestriction",
+      "sourceKey": "resource", "role": "has use restriction",
+      "targetKey": "useRestriction", "coRole": "use restriction of",
+      "description": "dcat-us:hasUseRestriction (NEW in DCAT-US 3.0)"
+    },
+    {
+      "key": "resourceHasLiabilityStatement",
+      "sourceKey": "resource", "role": "has liability statement",
+      "targetKey": "liabilityStatement", "coRole": "liability statement of",
+      "description": "dcat-us:hasLiabilityStatement (NEW in DCAT-US 3.0)"
+    },
+
+    {
+      "key": "resourceQualifiedAttribution",
+      "sourceKey": "resource", "role": "has qualified attribution",
+      "targetKey": "attribution", "coRole": "attributed for",
+      "description": "prov:qualifiedAttribution"
+    },
+    {
+      "key": "attributionHasAgent",
+      "sourceKey": "attribution", "role": "has agent",
+      "targetKey": "agent", "coRole": "agent of attribution",
+      "description": "prov:agent"
+    },
+    {
+      "key": "attributionHasRole",
+      "sourceKey": "attribution", "role": "had role",
+      "targetKey": "role", "coRole": "role in attribution",
+      "description": "dcat:hadRole"
+    },
+
+    {
+      "key": "resourceWasGeneratedBy",
+      "sourceKey": "resource", "role": "was generated by",
+      "targetKey": "activity", "coRole": "generated",
+      "description": "prov:wasGeneratedBy"
+    },
+    {
+      "key": "dataServiceWasUsedBy",
+      "sourceKey": "dataService", "role": "was used by",
+      "targetKey": "activity", "coRole": "used",
+      "description": "prov:wasUsedBy"
+    },
+
+    {
+      "key": "resourceHasQualityMeasurement",
+      "sourceKey": "resource", "role": "has quality measurement",
+      "targetKey": "qualityMeasurement", "coRole": "measures quality of",
+      "description": "dqv:hasQualityMeasurement"
+    },
+    {
+      "key": "qualityMeasurementOfMetric",
+      "sourceKey": "qualityMeasurement", "role": "is measurement of",
+      "targetKey": "metric", "coRole": "metric of",
+      "description": "dqv:isMeasurementOf"
+    },
+
+    {
+      "key": "distributionHasMediaType",
+      "sourceKey": "distribution", "role": "has media type",
+      "targetKey": "mediaType", "coRole": "media type of",
+      "description": "dcat:mediaType"
+    },
+    {
+      "key": "distributionHasChecksum",
+      "sourceKey": "distribution", "role": "has checksum",
+      "targetKey": "checksum", "coRole": "checksum of",
+      "description": "spdx:checksum"
+    },
+    {
+      "key": "distributionHasLicense",
+      "sourceKey": "distribution", "role": "distribution licensed under",
+      "targetKey": "licenseDocument", "coRole": "licenses distribution",
+      "description": "dcterms:license at the Distribution level"
+    },
+
+    {
+      "key": "conceptInScheme",
+      "sourceKey": "concept", "role": "in scheme",
+      "targetKey": "conceptScheme", "coRole": "scheme contains concept",
+      "description": "skos:inScheme"
+    },
+
+    {
+      "key": "catalogRecordPrimaryTopic",
+      "sourceKey": "catalogRecord", "role": "has primary topic",
+      "targetKey": "resource", "coRole": "primary topic of",
+      "description": "foaf:primaryTopic — cardinality 1..1 (enforced via assignment)"
+    },
+    {
+      "key": "catalogRecordSource",
+      "sourceKey": "catalogRecord", "role": "has source metadata",
+      "targetKey": "resource", "coRole": "source metadata of",
+      "description": "dcterms:source"
+    },
+    {
+      "key": "catalogRecordConformsTo",
+      "sourceKey": "catalogRecord", "role": "record conforms to",
+      "targetKey": "standard", "coRole": "is application profile for record",
+      "description": "dcterms:conformsTo at Catalog Record level"
+    },
+
+    {
+      "key": "contactHasAddress",
+      "sourceKey": "contact", "role": "has contact address",
+      "targetKey": "addressContact", "coRole": "address of contact",
+      "description": "vcard:address"
+    },
+    {
+      "key": "locationHasAddress",
+      "sourceKey": "location", "role": "has location address",
+      "targetKey": "addressLocation", "coRole": "address of location",
+      "description": "locn:address"
+    },
+
+    {
+      "key": "resourceHasIdentifier",
+      "sourceKey": "resource", "role": "has identifier",
+      "targetKey": "identifier", "coRole": "identifies",
+      "description": "adms:identifier (qualified identifier object)"
+    }
+  ]
+}

@@ -1,0 +1,248 @@
+{
+  "_notes": [
+    "kind values: BOOLEAN | STRING | NUMERIC | DATE | SINGLE_VALUE_LIST | MULTI_VALUE_LIST | SCRIPT",
+    "stringType only applies when kind=STRING. Values: PLAIN_TEXT | RICH_TEXT.",
+    "isInteger only applies when kind=NUMERIC.",
+    "Multi-valued semantics (e.g. multiple keywords) are enforced at assignment time via min/max, not at the type level."
+  ],
+  "attributeTypes": [
+    {
+      "key": "title",
+      "name": "DCAT3 Title",
+      "kind": "STRING",
+      "stringType": "PLAIN_TEXT",
+      "description": "Title of the resource (multi-lingual capable). Source URI: dcterms:title. Mandatory on Catalog/Dataset/Distribution/Data Service."
+    },
+    {
+      "key": "description",
+      "name": "DCAT3 Description",
+      "kind": "STRING",
+      "stringType": "RICH_TEXT",
+      "description": "Free-text account of the resource. Source URI: dcterms:description. Mandatory on Catalog/Dataset/Distribution/Data Service."
+    },
+    {
+      "key": "keyword",
+      "name": "DCAT3 Keyword",
+      "kind": "STRING",
+      "stringType": "PLAIN_TEXT",
+      "description": "Keyword or tag describing the resource. Source URI: dcat:keyword. Multi-valued via assignment cardinality."
+    },
+    {
+      "key": "releaseDate",
+      "name": "DCAT3 Release Date",
+      "kind": "DATE",
+      "description": "Date of formal issuance. Source URI: dcterms:issued."
+    },
+    {
+      "key": "modificationDate",
+      "name": "DCAT3 Modification Date",
+      "kind": "DATE",
+      "description": "Most recent date the resource was changed. Source URI: dcterms:modified. Mandatory on Catalog Record."
+    },
+    {
+      "key": "creationDate",
+      "name": "DCAT3 Creation Date",
+      "kind": "DATE",
+      "description": "Date the resource was first created. Source URI: dcterms:created."
+    },
+    {
+      "key": "identifierValue",
+      "name": "DCAT3 Identifier Value",
+      "kind": "STRING",
+      "stringType": "PLAIN_TEXT",
+      "description": "Main identifier for the resource (URI or other unique identifier). Source URI: dcterms:identifier."
+    },
+    {
+      "key": "version",
+      "name": "DCAT3 Version",
+      "kind": "STRING",
+      "stringType": "PLAIN_TEXT",
+      "description": "Version number or designation. Source URI: dcat:version."
+    },
+    {
+      "key": "spatialResolutionMeters",
+      "name": "DCAT3 Spatial Resolution (meters)",
+      "kind": "NUMERIC",
+      "isInteger": false,
+      "description": "Minimum spatial separation resolvable, in meters. Source URI: dcat:spatialResolutionInMeters."
+    },
+    {
+      "key": "temporalResolution",
+      "name": "DCAT3 Temporal Resolution",
+      "kind": "STRING",
+      "stringType": "PLAIN_TEXT",
+      "description": "Minimum time period resolvable, expressed as an xsd:duration string (e.g. P1D, PT1H). Source URI: dcat:temporalResolution."
+    },
+    {
+      "key": "endpointURL",
+      "name": "DCAT3 Endpoint URL",
+      "kind": "STRING",
+      "stringType": "PLAIN_TEXT",
+      "description": "Root location or primary endpoint of a Data Service. Source URI: dcat:endpointURL. Mandatory on Data Service."
+    },
+    {
+      "key": "endpointDescription",
+      "name": "DCAT3 Endpoint Description",
+      "kind": "STRING",
+      "stringType": "PLAIN_TEXT",
+      "description": "URL of a description of the services available via the end-points (e.g. OpenAPI spec). Source URI: dcat:endpointDescription."
+    },
+    {
+      "key": "checksumValue",
+      "name": "DCAT3 Checksum Value",
+      "kind": "STRING",
+      "stringType": "PLAIN_TEXT",
+      "description": "Lower-case hexadecimal-encoded digest. Source URI: spdx:checksumValue. Mandatory on Checksum."
+    },
+    {
+      "key": "cuiBannerMarking",
+      "name": "DCAT3 CUI Banner Marking",
+      "kind": "STRING",
+      "stringType": "PLAIN_TEXT",
+      "description": "CUI banner marking required for any unclassified information deemed sensitive. Source URI: dcat-us:cuiBannerMarking. Mandatory on CUI Restriction."
+    },
+    {
+      "key": "cuiDesignationIndicator",
+      "name": "DCAT3 CUI Designation Indicator",
+      "kind": "STRING",
+      "stringType": "PLAIN_TEXT",
+      "description": "Indicates which agency made the document CUI. Source URI: dcat-us:designationIndicator. Mandatory on CUI Restriction."
+    },
+    {
+      "key": "requiredIndicatorPerAuthority",
+      "name": "DCAT3 Required Indicator Per Authority",
+      "kind": "STRING",
+      "stringType": "PLAIN_TEXT",
+      "description": "Free text per the controlling authority (e.g. category description, distribution statement). Source URI: dcat-us:requiredIndicatorPerAuthority."
+    },
+    {
+      "key": "restrictionNote",
+      "name": "DCAT3 Restriction Note",
+      "kind": "STRING",
+      "stringType": "RICH_TEXT",
+      "description": "A note related to an access restriction. Source URI: dcat-us:restrictionNote."
+    },
+
+    {
+      "key": "formattedName",
+      "name": "DCAT3 Formatted Name",
+      "kind": "STRING",
+      "stringType": "PLAIN_TEXT",
+      "description": "Formatted text corresponding to the name of a Contact. Source URI: vcard:fn. Mandatory on Contact."
+    },
+    {
+      "key": "email",
+      "name": "DCAT3 Email",
+      "kind": "STRING",
+      "stringType": "PLAIN_TEXT",
+      "description": "Email address (use mailto: scheme). Source URI: vcard:hasEmail. Mandatory on Contact."
+    },
+    {
+      "key": "telephone",
+      "name": "DCAT3 Telephone",
+      "kind": "STRING",
+      "stringType": "PLAIN_TEXT",
+      "description": "Telephone number. Source URI: vcard:tel."
+    },
+    {
+      "key": "givenName",
+      "name": "DCAT3 Given Name",
+      "kind": "STRING",
+      "stringType": "PLAIN_TEXT",
+      "description": "Given name of a Contact. Source URI: vcard:given-name."
+    },
+    {
+      "key": "familyName",
+      "name": "DCAT3 Family Name",
+      "kind": "STRING",
+      "stringType": "PLAIN_TEXT",
+      "description": "Family name of a Contact. Source URI: vcard:family-name."
+    },
+    {
+      "key": "positionTitle",
+      "name": "DCAT3 Position Title",
+      "kind": "STRING",
+      "stringType": "PLAIN_TEXT",
+      "description": "Position role of a Contact. Source URI: vcard:title."
+    },
+    {
+      "key": "organizationName",
+      "name": "DCAT3 Organization Name",
+      "kind": "STRING",
+      "stringType": "PLAIN_TEXT",
+      "description": "Name of an organization. Source URI: vcard:organization-name / foaf:name."
+    },
+    {
+      "key": "uid",
+      "name": "DCAT3 UID",
+      "kind": "STRING",
+      "stringType": "PLAIN_TEXT",
+      "description": "Globally unique identifier (e.g. ORCID, URI) for a Contact. Source URI: vcard:hasUID."
+    },
+
+    {
+      "key": "streetAddress",
+      "name": "DCAT3 Street Address",
+      "kind": "STRING",
+      "stringType": "PLAIN_TEXT",
+      "description": "Street name and civic number. Source URI: vcard:street-address / locn:thoroughfare."
+    },
+    {
+      "key": "city",
+      "name": "DCAT3 City",
+      "kind": "STRING",
+      "stringType": "PLAIN_TEXT",
+      "description": "City. Source URI: vcard:locality / locn:postName."
+    },
+    {
+      "key": "postalCode",
+      "name": "DCAT3 Postal Code",
+      "kind": "STRING",
+      "stringType": "PLAIN_TEXT",
+      "description": "Postal code. Source URI: vcard:postal-code / locn:postCode."
+    },
+    {
+      "key": "administrativeArea",
+      "name": "DCAT3 Administrative Area",
+      "kind": "STRING",
+      "stringType": "PLAIN_TEXT",
+      "description": "Province / state / region / county. Source URI: vcard:region / locn:adminUnitL2."
+    },
+    {
+      "key": "countryName",
+      "name": "DCAT3 Country Name",
+      "kind": "STRING",
+      "stringType": "PLAIN_TEXT",
+      "description": "Country. Source URI: vcard:country-name / locn:adminUnitL1."
+    },
+
+    {
+      "key": "northBoundLatitude",
+      "name": "DCAT3 North Bound Latitude",
+      "kind": "NUMERIC",
+      "isInteger": false,
+      "description": "Northern bound of a Geographic Bounding Box (WGS 84 decimal degrees)."
+    },
+    {
+      "key": "southBoundLatitude",
+      "name": "DCAT3 South Bound Latitude",
+      "kind": "NUMERIC",
+      "isInteger": false,
+      "description": "Southern bound of a Geographic Bounding Box (WGS 84 decimal degrees)."
+    },
+    {
+      "key": "eastBoundLongitude",
+      "name": "DCAT3 East Bound Longitude",
+      "kind": "NUMERIC",
+      "isInteger": false,
+      "description": "Eastern bound of a Geographic Bounding Box (WGS 84 decimal degrees)."
+    },
+    {
+      "key": "westBoundLongitude",
+      "name": "DCAT3 West Bound Longitude",
+      "kind": "NUMERIC",
+      "isInteger": false,
+      "description": "Western bound of a Geographic Bounding Box (WGS 84 decimal degrees)."
+    }
+  ]
+}

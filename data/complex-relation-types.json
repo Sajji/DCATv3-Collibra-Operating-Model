@@ -1,0 +1,41 @@
+{
+  "_notes": [
+    "Complex relations require legTypes (asset roles in the relation) and attributeTypes (literal facets).",
+    "legTypes reference assetTypes by key from data/asset-types.json.",
+    "attributeTypes reference attributeTypes by key from data/attribute-types.json.",
+    "Cardinality (min/max) is set per leg/attribute. min=0 means optional; min=1 means mandatory."
+  ],
+  "complexRelationTypes": [
+    {
+      "key": "resourceRelationship",
+      "name": "DCAT3 Resource Relationship",
+      "description": "Reifies dcat:Relationship — attaches a Role and contextual metadata to a link between two DCAT3 Resources.",
+      "symbolType": "ACRONYM_CODE",
+      "acronymCode": "D3RR",
+      "legTypes": [
+        { "role": "has source resource",  "coRole": "is source resource of",  "assetTypeKey": "resource", "min": 1, "max": 1 },
+        { "role": "has target resource",  "coRole": "is target resource of",  "assetTypeKey": "resource", "min": 1, "max": 1 },
+        { "role": "with role",            "coRole": "role in relationship",   "assetTypeKey": "role",     "min": 1, "max": 1 }
+      ],
+      "attributeTypes": [
+        { "attributeTypeKey": "description",      "min": 0, "max": 1 },
+        { "attributeTypeKey": "modificationDate", "min": 0, "max": 1 }
+      ]
+    },
+    {
+      "key": "qualifiedAttribution",
+      "name": "DCAT3 Qualified Attribution",
+      "description": "Reifies prov:Attribution — links a Resource to an Agent with a specific Role.",
+      "symbolType": "ACRONYM_CODE",
+      "acronymCode": "D3QA",
+      "legTypes": [
+        { "role": "attributes resource", "coRole": "resource attributed by", "assetTypeKey": "resource", "min": 1, "max": 1 },
+        { "role": "to agent",            "coRole": "agent in attribution",   "assetTypeKey": "agent",    "min": 1, "max": 1 },
+        { "role": "with role",           "coRole": "role in attribution",    "assetTypeKey": "role",     "min": 1, "max": 1 }
+      ],
+      "attributeTypes": [
+        { "attributeTypeKey": "description", "min": 0, "max": 1 }
+      ]
+    }
+  ]
+}

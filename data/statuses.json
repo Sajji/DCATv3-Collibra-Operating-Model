@@ -1,0 +1,173 @@
+{
+  "_notes": [
+    "Statuses map to adms:status / Catalog Record editorial flow.",
+    "assignments[*].assetTypeKey references an asset type from data/asset-types.json.",
+    "statusKeys[0] is used as the default status for that asset type."
+  ],
+  "statuses": [
+    {
+      "key": "draft",
+      "name": "DCAT3 Status - Draft",
+      "description": "Initial draft of a DCAT3 record."
+    },
+    {
+      "key": "underReview",
+      "name": "DCAT3 Status - Under Review",
+      "description": "Submitted for review by a steward or governance council."
+    },
+    {
+      "key": "published",
+      "name": "DCAT3 Status - Published",
+      "description": "Approved and published. Equivalent to adms:status 'Completed'."
+    },
+    {
+      "key": "deprecated",
+      "name": "DCAT3 Status - Deprecated",
+      "description": "Superseded but still discoverable for historical reference."
+    },
+    {
+      "key": "withdrawn",
+      "name": "DCAT3 Status - Withdrawn",
+      "description": "Removed from active use; should no longer be referenced."
+    }
+  ],
+  "assignments": [
+    {
+      "assetTypeKey": "catalog",
+      "statusKeys": ["draft", "underReview", "published", "deprecated", "withdrawn"],
+      "characteristicTypes": [
+        { "attributeTypeKey": "title",            "min": 1, "max": 9999 },
+        { "attributeTypeKey": "description",      "min": 1, "max": 9999 },
+        { "attributeTypeKey": "releaseDate",      "min": 0, "max": 1    },
+        { "attributeTypeKey": "modificationDate", "min": 0, "max": 1    },
+        { "attributeTypeKey": "keyword",          "min": 0, "max": 9999 },
+        { "attributeTypeKey": "identifierValue",  "min": 0, "max": 9999 },
+        { "attributeTypeKey": "version",          "min": 0, "max": 1    }
+      ],
+      "relationTypeKeys": [
+        "catalogContainsDataset", "catalogContainsService", "catalogContainsRecord",
+        "catalogContainsCatalog", "catalogHasPart",
+        "resourcePublishedBy", "resourceCreatedBy", "resourceHasContactPoint",
+        "resourceHasTheme", "resourceHasThemeTaxonomy", "resourceHasSpatialCoverage",
+        "resourceHasTemporalCoverage", "resourceHasAccessRights", "resourceHasLicense",
+        "resourceConformsTo", "resourceQualifiedAttribution"
+      ]
+    },
+    {
+      "assetTypeKey": "catalogRecord",
+      "statusKeys": ["draft", "underReview", "published", "deprecated", "withdrawn"],
+      "characteristicTypes": [
+        { "attributeTypeKey": "title",            "min": 0, "max": 9999 },
+        { "attributeTypeKey": "description",      "min": 0, "max": 9999 },
+        { "attributeTypeKey": "modificationDate", "min": 1, "max": 1    },
+        { "attributeTypeKey": "releaseDate",      "min": 0, "max": 1    }
+      ],
+      "relationTypeKeys": [
+        "catalogRecordPrimaryTopic", "catalogRecordSource", "catalogRecordConformsTo"
+      ]
+    },
+    {
+      "assetTypeKey": "dataset",
+      "statusKeys": ["draft", "underReview", "published", "deprecated", "withdrawn"],
+      "characteristicTypes": [
+        { "attributeTypeKey": "title",                   "min": 1, "max": 9999 },
+        { "attributeTypeKey": "description",             "min": 1, "max": 9999 },
+        { "attributeTypeKey": "keyword",                 "min": 0, "max": 9999 },
+        { "attributeTypeKey": "releaseDate",             "min": 0, "max": 1    },
+        { "attributeTypeKey": "modificationDate",        "min": 0, "max": 1    },
+        { "attributeTypeKey": "identifierValue",         "min": 0, "max": 9999 },
+        { "attributeTypeKey": "version",                 "min": 0, "max": 1    },
+        { "attributeTypeKey": "spatialResolutionMeters", "min": 0, "max": 9999 },
+        { "attributeTypeKey": "temporalResolution",      "min": 0, "max": 9999 }
+      ],
+      "relationTypeKeys": [
+        "datasetHasDistribution", "resourcePublishedBy", "resourceCreatedBy",
+        "resourceHasContactPoint", "resourceHasTheme", "resourceHasSubject",
+        "resourceHasSpatialCoverage", "resourceHasTemporalCoverage",
+        "resourceHasGeographicBoundingBox", "resourceHasAccessRights", "resourceHasRights",
+        "resourceHasLicense", "resourceConformsTo", "resourceRightsHolder",
+        "resourceHasAccessRestriction", "resourceHasCuiRestriction",
+        "resourceHasUseRestriction", "resourceHasLiabilityStatement",
+        "resourceQualifiedAttribution", "resourceWasGeneratedBy",
+        "resourceHasQualityMeasurement", "resourceHasIdentifier"
+      ]
+    },
+    {
+      "assetTypeKey": "distribution",
+      "statusKeys": ["draft", "underReview", "published", "deprecated", "withdrawn"],
+      "characteristicTypes": [
+        { "attributeTypeKey": "title",       "min": 0, "max": 9999 },
+        { "attributeTypeKey": "description", "min": 0, "max": 9999 }
+      ],
+      "relationTypeKeys": [
+        "distributionHasMediaType", "distributionHasChecksum", "distributionHasLicense"
+      ]
+    },
+    {
+      "assetTypeKey": "dataService",
+      "statusKeys": ["draft", "underReview", "published", "deprecated", "withdrawn"],
+      "characteristicTypes": [
+        { "attributeTypeKey": "title",               "min": 1, "max": 9999 },
+        { "attributeTypeKey": "description",         "min": 0, "max": 9999 },
+        { "attributeTypeKey": "endpointURL",         "min": 1, "max": 9999 },
+        { "attributeTypeKey": "endpointDescription", "min": 0, "max": 9999 }
+      ],
+      "relationTypeKeys": [
+        "dataServiceServesDataset", "resourcePublishedBy", "resourceHasContactPoint",
+        "dataServiceWasUsedBy"
+      ]
+    },
+    {
+      "assetTypeKey": "cuiRestriction",
+      "statusKeys": ["draft", "published"],
+      "characteristicTypes": [
+        { "attributeTypeKey": "cuiBannerMarking",              "min": 1, "max": 1    },
+        { "attributeTypeKey": "cuiDesignationIndicator",       "min": 1, "max": 1    },
+        { "attributeTypeKey": "requiredIndicatorPerAuthority", "min": 0, "max": 9999 }
+      ],
+      "relationTypeKeys": []
+    },
+    {
+      "assetTypeKey": "accessRestriction",
+      "statusKeys": ["draft", "published"],
+      "characteristicTypes": [
+        { "attributeTypeKey": "restrictionNote", "min": 0, "max": 1 }
+      ],
+      "relationTypeKeys": []
+    },
+    {
+      "assetTypeKey": "checksum",
+      "statusKeys": ["draft", "published"],
+      "characteristicTypes": [
+        { "attributeTypeKey": "checksumValue", "min": 1, "max": 1 }
+      ],
+      "relationTypeKeys": []
+    },
+    {
+      "assetTypeKey": "contact",
+      "statusKeys": ["draft", "published"],
+      "characteristicTypes": [
+        { "attributeTypeKey": "formattedName",    "min": 1, "max": 1 },
+        { "attributeTypeKey": "email",            "min": 1, "max": 1 },
+        { "attributeTypeKey": "telephone",        "min": 0, "max": 1 },
+        { "attributeTypeKey": "givenName",        "min": 0, "max": 1 },
+        { "attributeTypeKey": "familyName",       "min": 0, "max": 1 },
+        { "attributeTypeKey": "positionTitle",    "min": 0, "max": 1 },
+        { "attributeTypeKey": "organizationName", "min": 0, "max": 1 },
+        { "attributeTypeKey": "uid",              "min": 0, "max": 1 }
+      ],
+      "relationTypeKeys": ["contactHasAddress"]
+    },
+    {
+      "assetTypeKey": "geographicBoundingBox",
+      "statusKeys": ["draft", "published"],
+      "characteristicTypes": [
+        { "attributeTypeKey": "northBoundLatitude", "min": 1, "max": 1 },
+        { "attributeTypeKey": "southBoundLatitude", "min": 1, "max": 1 },
+        { "attributeTypeKey": "eastBoundLongitude", "min": 1, "max": 1 },
+        { "attributeTypeKey": "westBoundLongitude", "min": 1, "max": 1 }
+      ],
+      "relationTypeKeys": []
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "community": {
+    "key": "dcat3-root",
+    "name": "DCAT3 - DCAT-US 3.0 Profile",
+    "description": "Root community for the DCAT-US 3.0 application profile. Holds all DCAT3-prefixed domains, asset types, attribute types, relation types, complex relations, and statuses. Created by the dcat3-collibra-import tool."
+  },
+  "domains": [
+    {
+      "key": "catalog",
+      "name": "DCAT3 Catalog Domain",
+      "typePublicId": "AssetDomain",
+      "description": "Holds DCAT3 Catalog, Catalog Record, Dataset, Dataset Series, Distribution, Data Service assets."
+    },
+    {
+      "key": "referenceData",
+      "name": "DCAT3 Reference Data Domain",
+      "typePublicId": "CodeList",
+      "description": "Holds DCAT3 Concept, Concept Scheme, Role, Media Type, Standard, Metric, and the controlled vocabularies DCAT-US mandates (themes, file formats, frequencies, licenses, access-rights, spatial areas, CUI categories, NARA restriction codes)."
+    },
+    {
+      "key": "stakeholder",
+      "name": "DCAT3 Stakeholder Domain",
+      "typePublicId": "BusinessAssetDomain",
+      "description": "Holds DCAT3 Agent, Organization, Person, Contact assets."
+    },
+    {
+      "key": "governance",
+      "name": "DCAT3 Governance Domain",
+      "typePublicId": "GovernanceAssetDomain",
+      "description": "Holds DCAT3 Access Restriction, CUI Restriction, Use Restriction, Liability Statement, License Document, Rights Statement, Provenance Statement, Attribution, Activity, Quality Measurement, Checksum assets."
+    },
+    {
+      "key": "spatialTemporal",
+      "name": "DCAT3 Spatial/Temporal Domain",
+      "typePublicId": "BusinessAssetDomain",
+      "description": "Holds DCAT3 Location, Address (Location), Address (Contact Point), Geographic Bounding Box, Period of Time assets."
+    }
+  ]
+}
