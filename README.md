@@ -1,4 +1,4 @@
-# dcat3-collibra-import
+# DCAT3-Collibra-Import
 
 Programmatic import of the **DCAT-US 3.0** profile into Collibra DGC via the Core REST 2.0 API.
 
